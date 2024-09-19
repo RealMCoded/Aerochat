@@ -79,6 +79,21 @@ namespace Aerochat.ViewModels
             };
         }
 
+        public static AttachmentViewModel FromSticker(DiscordMessageSticker sticker)
+        {
+            //Stickers are quicte literally fancy image uploads, so stickers can piggy back off of the same Attachment code.
+            return new AttachmentViewModel()
+            {
+                Url = sticker.StickerUrl,
+                Width = 128,
+                Height = 128,
+                Name = $"{sticker.Name} (Sticker)",
+                Size = FormatSize(0),
+                IsImage = true,
+                Id = sticker.Id,
+            };
+        }
+
         public static List<AttachmentViewModel> FromAttachments(List<DiscordAttachment> attachments)
         {
             List<AttachmentViewModel> result = new();

@@ -165,6 +165,12 @@ namespace Aerochat.ViewModels
                 vm.Attachments.Add(AttachmentViewModel.FromAttachment(attachment));
             }
 
+            //even though you can only send one sticker, for some reason Discord treats stickers as a list.
+            foreach (var sticker in message.Stickers)
+            {
+                vm.Attachments.Add(AttachmentViewModel.FromSticker(sticker));
+            }
+
             if (vm.IsReply)
             {
                 vm.ReplyMessage = FromMessage(message.ReferencedMessage, null, true);
