@@ -87,10 +87,10 @@ namespace Aerochat.ViewModels
                 Url = sticker.StickerUrl,
                 Width = 128,
                 Height = 128,
-                Name = $"{sticker.Name} (Sticker)",
+                Name = $"Sticker: {sticker.Name}",
                 Size = FormatSize(0),
                 IsImage = true,
-                Id = sticker.Id,
+                Id = sticker.Id
             };
         }
 
